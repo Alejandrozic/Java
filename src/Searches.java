@@ -1,14 +1,20 @@
 public class Searches {
 
-    public boolean linearSearch(){
+    public static void main(String[] args) {
+        // Run
+        int[] arr = {1,5,11,21,32,45,67,89,109};
+
+        linearSearch(arr,3);    // false
+        binarySearch(arr, 32);  // true
+
+
+    }
+    private static boolean linearSearch(int[] arr, int find){
         /**
          * Linear Search
          *  - searches in linear fashion
          *  - O(N) Time Complexity
          * */
-
-        int[] arr = {1,2,3};
-        int find = 2;
 
         for (int i: arr) {
             if (i == find){
@@ -18,7 +24,7 @@ public class Searches {
         return false;
     }
 
-    public boolean binarySearch(){
+    private static boolean binarySearch(int[] arr, int find){
         /**
          * Binary Search on sorted array
          *  - searches at mid points of data,
@@ -26,8 +32,6 @@ public class Searches {
          *  - O(logN) Time Complexity
          * */
 
-        int[] arr = {1,5,11,21,32,45,67,89,109};
-        int find = 1;
         int low = 0;
         int mid;
         int high = arr.length;
