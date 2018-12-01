@@ -1,6 +1,6 @@
 public class Searches {
 
-    public void linearSearch(){
+    public boolean linearSearch(){
         /**
          * Linear Search
          *  - searches in linear fashion
@@ -12,9 +12,10 @@ public class Searches {
 
         for (int i: arr) {
             if (i == find){
-                //...
+                return true;
             }
         }
+        return false;
     }
 
     public boolean binarySearch(){
