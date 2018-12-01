@@ -3,10 +3,16 @@ import java.util.Arrays;
 public class Sorting {
 
     public static void main(String[] args) {
-        selectionSort();
+        // Run
+        int[] arr = {11,9,17,5,12};
+
+        System.out.println(Arrays.toString(bubbleSort(arr)));       // [5, 9, 11, 12, 17]
+        System.out.println(Arrays.toString(selectionSort(arr)));    // [5, 9, 11, 12, 17]
+        System.out.println(Arrays.toString(insertionSort(arr)));    // [5, 9, 11, 12, 17]
+
     }
 
-    public static void bubbleSort(){
+    private static int[] bubbleSort(int[] arr){
         /**
          * Bubble Sort
          *  - start at first element, compare to next, and swap if next element is smaller
@@ -15,7 +21,6 @@ public class Sorting {
          *  - O(N*logN) Time Complexity
          * */
 
-        int[] arr = {5,32,8,4,65,9,1,3};
         int tmp;
 
         for ( int i = 0; i < arr.length-1; i ++){
@@ -27,15 +32,17 @@ public class Sorting {
                 }
             }
         }
+
+        return arr;
     }
 
-    public static void selectionSort(){
+    private static int[] selectionSort(int[] arr){
         /**
          * Selection Sort
          *  - finds smallest and swaps it with the last element
+         *  - O(N) Time Complexity
          * */
 
-        int[] arr = {11,9,17,5,12};
         int tmp;
         int minIndex;
 
@@ -47,11 +54,37 @@ public class Sorting {
                         minIndex = j;
                 }
             }
-            if ( i != minIndex ){
+            if (i != minIndex){
                 tmp = arr[minIndex];
                 arr[minIndex] = arr[i];
                 arr[i] = tmp;
             }
         }
+
+        return arr;
+    }
+
+    private static int[] insertionSort(int[] arr){
+        /**
+         * Insertion Sort
+         *  - divided array to sorted and unsorted,
+         *    compare each item from unsorted to sorted array
+         *    placing items in order
+         *  - O(N^2) Time Complexity
+         * */
+
+        int value;
+        int index;
+
+        for (int i=1; i < arr.length; i++){
+            value = arr[i];
+            index = i ;
+            while(value < arr[index-1]){
+                arr[index] = arr[index -1];
+            }
+            arr[index] = value;
+        }
+
+        return arr;
     }
 }
